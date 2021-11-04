@@ -99,5 +99,7 @@ const pokemons = [
         moreInfo: "https://bulbapedia.bulbagarden.net/wiki/Dragonair_(Pok%C3%A9mon)"
     }
   ];
-  
-  export default pokemons;
+
+console.log(pokemons[0])
+// const pokemonOnScreen = pokemons.map((pokemon) => `${pokemon.name} ${pokemon.type} `);
+// console.log(pokemonOnScreen);

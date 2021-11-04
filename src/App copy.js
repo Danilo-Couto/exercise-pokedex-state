@@ -11,48 +11,42 @@ class App extends React.Component {
 
     this.state = { 
       position: 0,
-      element: '',
+      element: 'Fire',
     };
-    
-    this.nextPokemon = this.nextPokemon.bind(this); 
-    this.fire = this.fire.bind(this); 
-    this.psychic = this.psychic.bind(this); 
-    this.all = this.all.bind(this); 
-   }
-      
-  // let din = data.filter((pokemon)=>pokemon.type.includes(this.state.element)).length -1);
+    console.log(this.state.position);
 
-  nextPokemon() {
-    this.setState(prevState => 
-    { if (this.state.position <  data.filter((pokemon)=>pokemon.type.includes(this.state.element)).length -1) // pq nao consigo declarar uma let (linha 25)?
-      {
-      return { position: (prevState.position + 1)}
-    } 
-    return { 
-      position: 0
-      // unabel buton??
-    };
-    });
+    this.handleClick = this.handleClick.bind(this); 
+    this.handleClickFire = this.handleClickFire.bind(this); 
+    this.handleClickPsychic = this.handleClickPsychic.bind(this); 
   }
-  
-  fire(){
+
+  handleClick() {
+    this.setState (() => (
+      { 
+        data.(data.findIndex((elem) => elem.id === this.state.position)) +1
+      }
+    )); 
+  }
+
+/*   handleClick() {
+    this.setState ((estadoAnterior, _props) => (
+      { 
+        position: estadoAnterior.position + 1
+      }
+    )); 
+  } */
+
+  handleClickFire(){
     this.setState (
       { element: 'Fire' }
     ); 
   }
 
-  psychic(){
+  handleClickPsychic(){
     this.setState (
       { element: 'Psychic' }
     );  
   }
-
-  all(){
-    this.setState (
-      { element: '' }
-    );  
-  }
-
 
   render () {
     const {position} = this.state;
@@ -62,21 +56,17 @@ class App extends React.Component {
       <>
       <h1> <Title name='Pokedex'/> </h1>
       <button
-      onClick = { this.nextPokemon } 
+      onClick = { this.handleClick } 
       // onChange = { (evento) => this.handleClick(evento)} 
       > Next Pokemon
       </button>
       <button
-      onClick = { this.fire } 
+      onClick = { this.handleClickFire } 
       > Fire
       </button>
       <button
-      onClick = { this.psychic } 
+      onClick = { this.handleClickPsychic } 
       > Psychic
-      </button>
-      <button
-      onClick = { this.all } 
-      > All
       </button>
       <article className ='pokedex'>
         <Pokemons
