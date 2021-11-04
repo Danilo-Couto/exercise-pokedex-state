@@ -20,7 +20,7 @@ class App extends React.Component {
     this.all = this.all.bind(this); 
    }
       
-  // let din = data.filter((pokemon)=>pokemon.type.includes(this.state.element)).length -1);
+  // let dinamic = data.filter((pokemon)=>pokemon.type.includes(this.state.element)).length -1);
 
   nextPokemon() {
     this.setState(prevState => 
@@ -30,7 +30,7 @@ class App extends React.Component {
     } 
     return { 
       position: 0
-      // unabel buton??
+      // unable buton??
     };
     });
   }
@@ -61,23 +61,27 @@ class App extends React.Component {
     return (
       <>
       <h1> <Title name='Pokedex'/> </h1>
-      <button
+      <button 
       onClick = { this.nextPokemon } 
-      // onChange = { (evento) => this.handleClick(evento)} 
+      // onChange = { (event) => this.nextPokemon(event)} 
       > Next Pokemon
       </button>
+
       <button
       onClick = { this.fire } 
       > Fire
       </button>
+
       <button
       onClick = { this.psychic } 
       > Psychic
       </button>
+
       <button
       onClick = { this.all } 
       > All
       </button>
+      
       <article className ='pokedex'>
         <Pokemons
           obj={data}
